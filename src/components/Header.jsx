@@ -26,8 +26,11 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
-        }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/95 shadow-lg backdrop-blur-sm' 
+          : 'bg-white/80 backdrop-blur-sm'
+      }`}
     >
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
@@ -45,7 +48,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none transition-colors duration-300"
+              className="text-gray-800 hover:text-blue-600 focus:outline-none transition-colors duration-300"
             >
               {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
@@ -58,7 +61,7 @@ const Header = () => {
                 <li key={item}>
                   <a
                     href={`/${item.toLowerCase()}`}
-                    className="text-gray-600 hover:text-blue-600 hover:bg-gray-50 md:hover:bg-transparent rounded-md transition-all duration-300"
+                    className="text-gray-800 hover:text-blue-600 hover:bg-gray-50/50 md:hover:bg-transparent rounded-md transition-all duration-300 px-3 py-2"
                   >
                     {item}
                   </a>
@@ -75,7 +78,7 @@ const Header = () => {
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                className="px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 bg-white/80"
               />
               <button
                 type="submit"
@@ -94,20 +97,21 @@ const Header = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`${isMenuOpen
-              ? 'block absolute top-full left-0 w-full bg-white shadow-lg'
+          className={`${
+            isMenuOpen
+              ? 'block absolute top-full left-0 w-full bg-white/95 shadow-lg backdrop-blur-sm'
               : 'hidden'
-            } md:hidden transition-all duration-300 ease-in-out`}
+          } md:hidden transition-all duration-300 ease-in-out`}
         >
           {/* Mobile Search Bar */}
-          <div className="p-4 border-b">
+          <div className="p-4 border-b border-gray-200">
             <form onSubmit={handleSearch} className="flex items-center">
               <input
                 type="text"
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                className="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 bg-white/80"
               />
               <button
                 type="submit"
@@ -125,7 +129,7 @@ const Header = () => {
                 <li key={item}>
                   <a
                     href={`/${item.toLowerCase()}`}
-                    className="block px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-all duration-300"
+                    className="block px-4 py-2 text-gray-800 hover:text-blue-600 hover:bg-gray-50/50 rounded-md transition-all duration-300"
                   >
                     {item}
                   </a>
@@ -135,7 +139,7 @@ const Header = () => {
           </nav>
 
           {/* Mobile Contact Us Button */}
-          <div className="p-4 border-t">
+          <div className="p-4 border-t border-gray-200">
             <button
               className="w-full px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 transform hover:scale-105"
             >
@@ -149,3 +153,4 @@ const Header = () => {
 };
 
 export default Header; 
+
