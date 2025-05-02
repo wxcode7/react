@@ -29,7 +29,7 @@ const Header = () => {
       className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
         }`}
     >
-      <div className="container mx-auto px-4 py-3 bg-white">
+      <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
